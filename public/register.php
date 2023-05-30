@@ -26,7 +26,7 @@ if (count($err) === 0) {
     $hasCreated = UserLogic::createUser($_POST);
 
     if(!$hasCreated) {
-        return false;
+        $err[] = 'ユーザ登録に失敗しました';
     }
 }
 
