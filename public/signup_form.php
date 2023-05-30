@@ -29,5 +29,6 @@
             <input type="submit" value="新規登録">
         </p>
     </form>
+    <a href="./login.php">ログイン画面はこちら</a>
 </body>
 </html>
