@@ -26,6 +26,7 @@ class UserLogic
         try {
             $stmt = connect()->prepare($sql);
             $result = $stmt->execute($arr);
+            $result = true;
             return $result;
         } catch (\Exception $e) {
             return $result;

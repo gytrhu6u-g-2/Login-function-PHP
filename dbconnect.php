@@ -1,7 +1,7 @@
 <?php
 
 require_once 'env.php';
-ini_set('display_errors', true);
+ini_set('display_errors', true); //display_errorsオプションをtrueに設定し、エラーメッセージを表示するように変更する
 
 function connect() {
     $host = DB_HOST;
