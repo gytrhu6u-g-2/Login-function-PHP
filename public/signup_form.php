@@ -1,7 +1,16 @@
 <?php
 session_start();
 require_once '../functions.php';
+require_once '../functions.php';
 
+$result = UserLogic::checkLogin();
+if ($result) {
+    header('Location: mypage.php');
+    return;
+}
+
+$login_err = isset($_SESSION['login_err']) ? $_SESSION['login_err'] : null;
+unset($_SESSION['login_err']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,6 +22,9 @@ require_once '../functions.php';
 </head>
 <body>
     <h2>ユーザ登録フォーム</h2>
+    <?php if (isset($login_err)) {?>
+        <p><?php echo $login_err; ?></p>
+    <?php } ?>
     <form action="register.php" method="POST">
         <p>
             <label for="username">ユーザ名：</label>
@@ -35,6 +47,6 @@ require_once '../functions.php';
             <input type="submit" value="新規登録">
         </p>
     </form>
-    <a href="./login.php">ログイン画面はこちら</a>
+    <a href="./login_form.php">ログイン画面はこちら</a>
 </body>
 </html>

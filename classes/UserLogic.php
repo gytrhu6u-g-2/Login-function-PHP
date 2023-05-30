@@ -1,5 +1,7 @@
 <?php
 
+use LDAP\Result;
+
 require_once '../dbconnect.php';
 
 class UserLogic
@@ -83,5 +85,22 @@ class UserLogic
             echo $e->getMessage();
             return false;
         }
+    }
+
+    /**
+     * ログインチェック
+     * @param void
+     * @return bool $result
+     */
+    public static function checkLogin()
+    {
+        $result = false;
+
+        if (isset($_SESSION['login_user']) && $_SESSION['login_user']['id'] > 0) {
+            $result = true;
+            return $result;
+        }
+
+        return $result;
     }
 }
